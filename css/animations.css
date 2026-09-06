@@ -1,0 +1,77 @@
+/* ============================================================
+   АНИМАЦИЯ АВАТАРКИ (4 фото)
+   ============================================================ */
+
+/* ===== ОСНОВНАЯ АНИМАЦИЯ (4 фото) ===== */
+/* РЕДАКТИРУЙТЕ ПУТИ К ФОТОГРАФИЯМ ЗДЕСЬ */
+.avatar-animation {
+    animation: avatarSlideshow 12s infinite;
+}
+
+/* КЛЮЧЕВЫЕ КАДРЫ ДЛЯ СМЕНЫ ФОТО */
+@keyframes avatarSlideshow {
+    0%, 20% {
+        background-image: url('../assets/avatar/1.jpg');
+    }
+    25%, 45% {
+        background-image: url('../assets/avatar/2.jpg');
+    }
+    50%, 70% {
+        background-image: url('../assets/avatar/3.jpg');
+    }
+    75%, 95% {
+        background-image: url('../assets/avatar/4.jpg');
+    }
+    100% {
+        background-image: url('../assets/avatar/1.jpg');
+    }
+}
+
+/* Альтернативный способ через img-теги (если используете img) */
+.avatar-animation img {
+    animation: imgSlideshow 12s infinite;
+}
+.avatar-animation img:nth-child(1) { animation-delay: 0s; }
+.avatar-animation img:nth-child(2) { animation-delay: 3s; }
+.avatar-animation img:nth-child(3) { animation-delay: 6s; }
+.avatar-animation img:nth-child(4) { animation-delay: 9s; }
+
+@keyframes imgSlideshow {
+    0%, 20% { opacity: 1; }
+    25%, 100% { opacity: 0; }
+}
+
+/* ===== АНИМАЦИЯ ДЛЯ ВЫПОЛНЕННЫХ ЗАДАНИЙ ===== */
+/* РЕДАКТИРУЙТЕ ПУТИ К ФОТОГРАФИЯМ ДЛЯ СОСТОЯНИЯ "ВСЁ ВЫПОЛНЕНО" ЗДЕСЬ */
+.avatar-animation.done {
+    animation: avatarSlideshowDone 12s infinite;
+}
+
+@keyframes avatarSlideshowDone {
+    0%, 20% {
+        background-image: url('../assets/avatar-done/1.jpg');
+    }
+    25%, 45% {
+        background-image: url('../assets/avatar-done/2.jpg');
+    }
+    50%, 70% {
+        background-image: url('../assets/avatar-done/3.jpg');
+    }
+    75%, 95% {
+        background-image: url('../assets/avatar-done/4.jpg');
+    }
+    100% {
+        background-image: url('../assets/avatar-done/1.jpg');
+    }
+}
+
+/* Для img-подхода с выполненными */
+.avatar-animation.done img:nth-child(1) { animation-delay: 0s; }
+.avatar-animation.done img:nth-child(2) { animation-delay: 3s; }
+.avatar-animation.done img:nth-child(3) { animation-delay: 6s; }
+.avatar-animation.done img:nth-child(4) { animation-delay: 9s; }
+
+/* Сброс анимации для аватара при переключении */
+.avatar-animation {
+    transition: all 0.5s ease;
+}
