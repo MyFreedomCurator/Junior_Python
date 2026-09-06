@@ -6,7 +6,140 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Тестовое приложение</title>
     <style>
-        body {
+        body {<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Система заданий</title>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+    <div id="registrationPage" class="page active">
+        <div class="container">
+            <h1>Добро пожаловать!</h1>
+            <p class="subtitle">Представьтесь, чтобы начать работу</p>
+
+            <div class="form-group">
+                <label for="firstName">Имя</label>
+                <input type="text" id="firstName" placeholder="Введите имя" autofocus>
+                <div class="validation-error" id="firstNameError"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="lastName">Фамилия</label>
+                <input type="text" id="lastName" placeholder="Введите фамилию">
+                <div class="validation-error" id="lastNameError"></div>
+            </div>
+
+            <button id="registerBtn" class="btn-primary">Начать работу</button>
+        </div>
+    </div>
+
+    <div id="dashboardPage" class="page">
+        <div class="container">
+  
+            <div class="dashboard-header">
+            
+                <div class="avatar-container">
+                    <div class="avatar-animation" id="avatarAnimation">
+                        <img src="assets/avatar/1.jpg" alt="avatar 1" class="avatar-img">
+                        <img src="assets/avatar/2.jpg" alt="avatar 2" class="avatar-img">
+                        <img src="assets/avatar/3.jpg" alt="avatar 3" class="avatar-img">
+                        <img src="assets/avatar/4.jpg" alt="avatar 4" class="avatar-img">
+                    </div>
+                </div>
+
+                <div class="user-info">
+                    <h2 id="greetingText">Привет, <span id="userNameDisplay"></span>!</h2>
+                    
+                    <div class="progress-bars">
+                        <div class="progress-item">
+                            <span class="progress-label">Общий прогресс</span>
+                            <div class="progress-bar">
+                                <div class="progress-fill" id="totalProgress" style="width: 0%;">0%</div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <span class="progress-label">Заданий выполнено</span>
+                            <div class="progress-bar">
+                                <div class="progress-fill" id="tasksProgress" style="width: 0%;">0/0</div>
+                            </div>
+                        </div>
+                       
+                        <!-- 
+                        <div class="progress-item">
+                            <span class="progress-label">Название вашего показателя</span>
+                            <div class="progress-bar">
+                                <div class="progress-fill" id="customProgress" style="width: 0%;">0%</div>
+                            </div>
+                        </div>
+                        -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="code-input-section">
+                <h3>Введите код задания</h3>
+                <div class="input-row">
+                    <input type="text" id="codeInput" placeholder="Введите код" maxlength="10">
+                    <button id="startTaskBtn" class="btn-primary">Начать</button>
+                </div>
+                <div id="codeError" class="error-message">Неверный код</div>
+            </div>
+
+            <div class="tasks-list">
+                <h3>Все задания</h3>
+                <div id="tasksGrid">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="taskPage" class="page">
+        <div class="container">
+            <div class="task-header">
+                <h2 id="taskTitle">Задание</h2>
+                <span class="task-code" id="taskCode">Код: ****</span>
+            </div>
+
+            <div class="task-body">
+                <div class="task-description">
+                    <h3 id="taskDescription">Описание</h3>
+                    <div id="taskText" class="task-text"></div>
+                </div>
+
+                <div id="answerArea" class="answer-area">
+                    <label for="studentAnswer">Ваш ответ:</label>
+                    <textarea id="studentAnswer" rows="6" placeholder="Введите ответ здесь..."></textarea>
+                </div>
+
+                <div id="testContainer" style="display: none;">
+              
+                </div>
+
+                <div class="task-actions">
+                    <button id="submitTaskBtn" class="btn-success">Ответить</button>
+                    <button id="backToDashboardBtn" class="btn-secondary">К списку заданий</button>
+                </div>
+
+                <div id="taskStatus" class="task-status-message"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/config.js"></script>
+    <script src="js/tasks.js"></script>
+    <script src="js/googleSheets.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/dashboard.js"></script>
+    <script src="js/taskManager.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
             font-family: Arial, sans-serif;
             max-width: 600px;
             margin: 50px auto;
